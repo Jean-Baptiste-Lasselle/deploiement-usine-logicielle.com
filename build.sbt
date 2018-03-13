@@ -2,6 +2,7 @@ import com.typesafe.sbt.SbtScalariform._
 
 import scalariform.formatter.preferences._
 
+
 name := "software-factory"
 
 version := "1.0.0"
@@ -68,12 +69,39 @@ scalacOptions ++= Seq(
 // Scalariform settings
 //********************************************************
 
-defaultScalariformSettings
+// defaultScalariformSettings
+// scalariformSettings(true)
+// scalariformAutoformat((0 == 0))
+// scalariformAutoformat(_*)
+// scalariformSettings(_*)
+// scalariformSettings(false)
+// scalariformAutoformat(true)
+// scalariFormSettings
+// settings(com.typesafe.packager.PackagerPlugin.packagerSettings:_*)
 
-ScalariformKeys.preferences := ScalariformKeys.preferences.value
-  .setPreference(FormatXml, false)
-  .setPreference(DoubleIndentConstructorArguments, false)
-  .setPreference(DanglingCloseParenthesis, Preserve)
+// resolvers ++= Seq(
+//   DefaultMavenRepository,
+//   "sonatype.release" at "http://oss.sonatype.org/content/repositories/releases",
+//   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
+// )
+// -
+// seq(scalariformSettings: _*)
+// seq(com.typesafe.packager.PackagerPlugin.packagerSettings:_*)
+
+// -->> ajout JIBL début
+// scalariformPreferences := scalariformPreferences.value
+//    .setPreference(AlignSingleLineCaseStatements, true)
+//    .setPreference(DoubleIndentConstructorArguments, true)
+//    .setPreference(DanglingCloseParenthesis, Preserve)
+
+
+// ScalariformKeys.preferences := FormattingPreferences().setPreference(FormatXml, false)
+// -->> ajout JIBL fin
+
+// ScalariformKeys.preferences := ScalariformKeys.preferences.value
+//   .setPreference(FormatXml, false)
+//   .setPreference(DoubleIndentConstructorArguments, false)
+//   .setPreference(DanglingCloseParenthesis, Preserve)
 
 
 includeFilter in (Assets, LessKeys.less) := "*.less"
@@ -82,3 +110,4 @@ excludeFilter in (Assets, LessKeys.less) := "_*.less"
 
 
 herokuAppName in Compile := "software-factory"
+enablePlugins(JavaAppPackaging)

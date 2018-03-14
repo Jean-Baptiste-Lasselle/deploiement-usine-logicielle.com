@@ -102,6 +102,8 @@ scalacOptions ++= Seq(
 //   .setPreference(FormatXml, false)
 //   .setPreference(DoubleIndentConstructorArguments, false)
 //   .setPreference(DanglingCloseParenthesis, Preserve)
+// ### Ajout JIBL MultiThreading des builds
+parallelExecution in ThisBuild := true
 
 
 includeFilter in (Assets, LessKeys.less) := "*.less"
@@ -110,4 +112,6 @@ excludeFilter in (Assets, LessKeys.less) := "_*.less"
 
 
 herokuAppName in Compile := "software-factory"
+
+
 enablePlugins(JavaAppPackaging)
